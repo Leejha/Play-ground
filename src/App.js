@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <form
+        onClick={() => alert('form')}
+        style={{ width: '200px', height: '200px', backgroundColor: 'red' }}
+      >
+        FORM
+        <div
+          onClick={() => {
+            alert('div');
+          }}
+          style={{ width: '100px', height: '100px', backgroundColor: 'green' }}
         >
-          Learn React
-        </a>
-      </header>
+          DIV
+          <p
+            onClick={(event) => {
+              alert('p');
+              event.stopPropagation();
+            }}
+            style={{ width: '50px', height: '50px', backgroundColor: 'blue' }}
+          >
+            P
+          </p>
+        </div>
+      </form>
     </div>
   );
 }
