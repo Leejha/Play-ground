@@ -22,6 +22,8 @@ jobs:
           git add .
           git commit -m 'chore: 디자인 토큰 업데이트'
           git push
+          git log 
+          git log --oneline -3
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
