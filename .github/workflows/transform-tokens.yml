@@ -1,0 +1,35 @@
+name: Transform Tokens
+
+on:
+  push:
+    branches:
+      - chore/design-token
+    paths:
+      - scripts/style-dictionary/tokens.json
+
+jobs:
+  transform-tokens:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "Leejha"
+          git config --global user.email "jhl2619@naver.com"
+          git add .
+          git commit -m 'chore: 디자인 토큰 업데이트'
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          commit-message: "chore: 디자인 토큰 업데이트"
+          title: "[디자인] 토큰 업데이트"
+          body: "Figma에서 토큰이 업데이트 되었습니다."
+          base: test
