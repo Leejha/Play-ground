@@ -12,21 +12,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Commit and Push Changes
-        run: |
-          git config --global user.name "Leejha"
-          git config --global user.email "jhl2619@naver.com"
-          git add .
-          git commit -m 'chore: 디자인 토큰 업데이트'
-          git push
-          git log 
-          git log --oneline -3
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
