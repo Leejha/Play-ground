@@ -15,11 +15,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Reset promotion branch
-        run: |
-          git fetch origin main:main
-          git reset --hard main
-
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
