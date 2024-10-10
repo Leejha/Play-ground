@@ -20,7 +20,8 @@ jobs:
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           commit-message: "chore: 디자인 토큰 업데이트"
-          branch: chore/transform-token
+          branch: ${{ github.ref }}
+          # branch: chore/transform-token
           title: "[디자인] 토큰 업데이트"
           body: "Figma에서 토큰이 업데이트 되었습니다."
           base: test
